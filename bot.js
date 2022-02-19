@@ -13,13 +13,13 @@ create a config.json file in the same directory as bot.js with the following syn
 }
 
 */
-
+//const { token } = require('./config.json');
 
 
 
 // Require the necessary discord.js classes
 const { Client, Intents, PermissionOverwrites } = require('discord.js');
-const { token } = require('./config.json');
+
 //arrays surnames and lastnames are pulled from the object "data"
 const surnames = data.surname
 const lastnames = data.lastname
@@ -84,7 +84,7 @@ function newCumberBatch(){
 
 
 // Login to Discord with your client's token
-client.login(token);
+client.login(process.env.DJS_TOKEN);
 
 
 
