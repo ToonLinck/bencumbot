@@ -48,9 +48,14 @@ client.once("guildCreate", (g) => {
 
     })
 
+    client.channels.cache.get(cbChannelid).send(newCumberBatch())
+
     setInterval(function() {
 
+
+        try {
         client.channels.cache.get(cbChannelid).send(newCumberBatch())
+        } catch (e) { console.error("Couldnt send"); } 
 
     },5000)
 
