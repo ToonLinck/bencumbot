@@ -37,12 +37,38 @@ client.once('ready', () => {
 // When the client joins a new Guild, run this code
 client.once("guildCreate", (g) => {
 
+    let cbChannelid
+
     g.channels.create("daily-benedict-cumberbatch", {
         type: 'GUILD_TEXT',
         topic: "Daily dose of Benedict Cumberbatch",
+    }).then(result => {
+
+        cbChannelid = result.id;
+
     })
 
+    setInterval(function() {
+
+        client.channels.cache.get(cbChannelid).send(newCumberBatch())
+
+    },5000)
+
+
 });
+
+
+function newCumberBatch(){
+
+
+    const sname = surnames[Math.floor(Math.random()*surnames.length)]
+    const lname = lastnames[Math.floor(Math.random()*lastnames.length)]
+
+    const cumberbatch = `${sname} ${lname}`
+
+    return cumberbatch
+}
+
 
 
 
