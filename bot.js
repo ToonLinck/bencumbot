@@ -63,7 +63,7 @@ client.once("guildCreate", (g) => {
             client.channels.cache.get(cbChannelid).send(newCumberBatch())
         } catch (e) { console.log("couldnt send"); } 
 
-    },5000)
+    },86400000)
 
 
 });
