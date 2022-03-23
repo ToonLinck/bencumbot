@@ -55,7 +55,7 @@ client.once("guildCreate", (g) => {
     })
 
 
-    // send a new message ever 24 hours
+    // send a new message ever 24 hours if set to 86400000
     setInterval(function() {
 
 
@@ -63,7 +63,7 @@ client.once("guildCreate", (g) => {
             client.channels.cache.get(cbChannelid).send(newCumberBatch())
         } catch (e) { console.log("couldnt send"); } 
 
-    },86400000)
+    },5000)
 
 
 });
